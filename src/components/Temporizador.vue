@@ -2,16 +2,16 @@
   <div class="is-flex is-align-items-center is-justify-content-space-between">
     <Cronometro :tempoEmSegundos="tempoEmSegundos"/>
     <button class="button" @click="iniciar" :disabled="cronometroRodando">
-        <span class="icon">
-            <i class="fas fa-play"></i>
-        </span>
-        <span>play</span>
+      <span class="icon">
+        <i class="fas fa-play"></i>
+      </span>
+      <span>play</span>
     </button>
     <button class="button" @click="finalizar" :disabled="!cronometroRodando">
-        <span class="icon">
-            <i class="fas fa-stop"></i>
-        </span>
-        <span>stop</span>
+      <span class="icon">
+        <i class="fas fa-stop"></i>
+      </span>
+      <span>stop</span>
     </button>
   </div>
 </template>
@@ -22,6 +22,7 @@
 
   export default defineComponent({
     name: "Temporizador",
+    emits: ['aoTemporizadorFinalizado'],
     components: {
       Cronometro
     },
@@ -42,6 +43,8 @@
       finalizar() : void {
         this.cronometroRodando = false
         clearInterval(this.cronometro)
+        this.$emit('aoTemporizadorFinalizado', this.tempoEmSegundos)
+        this.tempoEmSegundos = 0
       }
     }
   });
