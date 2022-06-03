@@ -6,6 +6,23 @@
         <button class="button" @click="alterarTema">
             {{ textoBotao }}
         </button>
+
+        <nav class="panel mt-5">
+            <ul>
+                <li class="has-text-left">
+                    <router-link class="link has-text-white" to="/">
+                        <i class="fas fa-tasks"></i>
+                        Tarefas
+                    </router-link>
+                </li>
+                <li class="has-text-left">
+                    <router-link class="link has-text-white" to="/projetos">
+                        <i class="fas fa-project-diagram"></i>
+                        Projetos
+                    </router-link>
+                </li>
+            </ul>
+        </nav>
     </header>
 </template>
 
