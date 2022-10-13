@@ -4,7 +4,12 @@
         <form @submit.prevent="salvar">
             <div class="field">
                 <label for="nomeDoProjeto" class="label">Nome do projeto</label>
-                <input type="text" class="input" v-model="nomeDoProjeto" id="nomeDoProjeto">
+                <input
+                    type="text"
+                    class="input"
+                    v-model="nomeDoProjeto"
+                    id="nomeDoProjeto"
+                />
             </div>
 
             <div class="field">
@@ -59,3 +64,9 @@ export default defineComponent({
     }
 });
 </script>
+
+<style scoped>
+.projetos {
+    padding: 1.25rem;
+}
+</style>
