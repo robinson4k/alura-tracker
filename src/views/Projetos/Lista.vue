@@ -24,6 +24,7 @@
                                 <i class="fas fa-pencil-alt"></i>
                             </span>
                         </router-link>
+                        <button class="button ml-2 is-danger" @click="excluir(projeto.id)"><span class="icon is-small"><i class="fas fa-trash"></i></span></button>
                     </td>
                 </tr>
             </tbody>
@@ -32,19 +33,23 @@
 </template>
 
 <script lang="ts">
-import IProjeto from '@/interfaces/IProjeto';
-import { useStore } from '@/store';
-import { computed, defineComponent } from 'vue';
+import { useStore } from '@/store'
+import { EXCLUIR_PROJETO } from '@/store/tipos-mutacoes'
+import { computed, defineComponent } from 'vue'
 
 export default defineComponent({
     name: "Lista",
-    components: {
+    methods: {
+        excluir(id: string) {
+            this.store.commit(EXCLUIR_PROJETO, id)
+        }
     },
     setup () {
         const store = useStore()
         return {
-            projetos: computed(() => store.state.projetos)
+            projetos: computed(() => store.state.projetos),
+            store
         }
     }
-});
+})
 </script>

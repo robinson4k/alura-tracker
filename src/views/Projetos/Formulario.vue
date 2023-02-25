@@ -19,9 +19,9 @@
 </template>
 
 <script lang="ts">
-import IProjeto from '@/interfaces/IProjeto';
-import { useStore } from '@/store';
-import { defineComponent } from 'vue';
+import { useStore } from '@/store'
+import { ADICIONA_PROJETO, ALTERA_PROJETO } from '@/store/tipos-mutacoes'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
     name: "Formulario",
@@ -42,12 +42,12 @@ export default defineComponent({
     methods: {
         salvar() {
             if (this.id) {
-                this.store.commit('ALTERA_PROJETO', {
+                this.store.commit(ALTERA_PROJETO, {
                     id: this.id,
                     nome: this.nomeDoProjeto
                 })
             } else {
-                this.store.commit('ADICIONA_PROJETO', this.nomeDoProjeto)
+                this.store.commit(ADICIONA_PROJETO, this.nomeDoProjeto)
             }
             this.nomeDoProjeto = ''
             this.$router.push('/projetos')
@@ -59,5 +59,5 @@ export default defineComponent({
             store,
         }
     }
-});
+})
 </script>
