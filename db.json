@@ -3,6 +3,10 @@
     {
       "id": 1,
       "nome": "Alura tracker 3.0"
+    },
+    {
+      "nome": "Laravel",
+      "id": 2
     }
   ],
   "tarefas": [
@@ -14,6 +18,15 @@
         "id": 1,
         "nome": "Alura tracker 3.0"
       }
+    },
+    {
+      "duracaoEmSegundos": 3,
+      "descricao": "TESTE",
+      "projeto": {
+        "id": 1,
+        "nome": "Alura tracker 3.0"
+      },
+      "id": 3
     }
   ]
 }
