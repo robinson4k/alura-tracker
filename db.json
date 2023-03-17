@@ -35,6 +35,15 @@
         "nome": "Alura tracker 3.0"
       },
       "id": 3
+    },
+    {
+      "duracaoEmSegundos": 4,
+      "descricao": "teste sfgsdg",
+      "projeto": {
+        "id": 4,
+        "nome": "Vue.js 3"
+      },
+      "id": 4
     }
   ]
 }
