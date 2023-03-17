@@ -4,6 +4,16 @@
         <Box v-if="listaEstaVazia">
             Nenhum registro encontrado :(
         </Box>
+
+        <div class="field">
+            <p class="control has-icons-left has-icons-right">
+                <input class="input" type="text" placeholder="Digite para filtrar" v-model="filtro">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-search"></i>
+                </span>
+            </p>
+        </div>
+
         <Tarefa v-for="(tarefa, index) in tarefas" :key="index" :tarefa="tarefa" @aoTarefaClicada="selecionarTarefa" />
 
         <div class="modal" :class="{ 'is-active' : tarefaSelecionada }" v-if="tarefaSelecionada">
@@ -34,7 +44,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from 'vue';
+import { computed, defineComponent, ref } from 'vue';
 import Formulario from '../components/Formulario.vue';
 import Tarefa from '../components/Tarefa.vue';
 import Box from '../components/Box.vue';
@@ -78,10 +88,20 @@ export default defineComponent({
         const store = useStore()
         store.dispatch(OBTER_TAREFAS)
         store.dispatch(OBTER_PROJETOS)
+
+        const filtro = ref("")
+
+        const tarefas = computed(() => 
+            store.state.tarefas.filter(
+                (t) => !filtro.value || t.descricao.includes(filtro.value)
+            )
+        )
+
         return {
-            tarefas: computed(() => store.state.tarefas),
-            store
+            tarefas,
+            store,
+            filtro
         }
     }
-});
+})
 </script>
