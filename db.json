@@ -5,12 +5,12 @@
       "nome": "Alura tracker 3.0"
     },
     {
-      "nome": "Laravel",
-      "id": 2
+      "id": 2,
+      "nome": "Laravel 10"
     },
     {
-      "nome": "Estudo",
-      "id": 3
+      "id": 3,
+      "nome": "Estudo 123"
     }
   ],
   "tarefas": [
