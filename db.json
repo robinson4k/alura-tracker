@@ -7,13 +7,17 @@
     {
       "nome": "Laravel",
       "id": 2
+    },
+    {
+      "nome": "Estudo",
+      "id": 3
     }
   ],
   "tarefas": [
     {
       "id": 2,
       "duracaoEmSegundos": 120,
-      "descricao": "Configuração de ambiente",
+      "descricao": "Configuração de ambiente 22",
       "projeto": {
         "id": 1,
         "nome": "Alura tracker 3.0"
